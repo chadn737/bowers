@@ -1,5 +1,6 @@
 import sys
 import urllib.request
+import re
 
 files = {
 'Athaliana':[],
@@ -12,9 +13,9 @@ files = {
 'Osativa':[],
 'Ppersica':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656929/SRR3286303/SRR3286303.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656929/SRR3286304/SRR3286304.sra'],
-'Ptrichocarpa':[],
+'Ptrichocarpa':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656930/SRR3286305/SRR3286305.sra'],
 'Sbicolor':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656933/SRR3286309/SRR3286309.sra'],
-'Slycopersicum':[],
+'Slycopersicum':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX200/SRX2008738/SRR4013312/SRR4013312.sra'],
 'Vvinifera':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286315/SRR3286315.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286316/SRR3286316.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286317/SRR3286317.sra',
@@ -23,5 +24,7 @@ files = {
 'Zmays':[]
 }
 
-for v in files.get(sys.arv[0]):
-    urllib.request.urlretrieve(i,re.sub('ftp.*\/','',i))
+for i in files.get(sys.argv[1]):
+	print(re.sub('ftp.*\/','',i))	
+	urllib.request.urlretrieve(i,re.sub('ftp.*\/','',i))
+
