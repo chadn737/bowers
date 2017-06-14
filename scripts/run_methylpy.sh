@@ -11,10 +11,9 @@ module load sratoolkit/2.8.0
 sample=$(pwd | sed s/.*data\\/// | sed s/\\///)
 
 #Download data
-<<<<<<< HEAD
 fastq=$(ls fastq/*fastq.gz | wc -l)
 if [ $fastq > 0 ]
-then 
+then
 	echo "Sequence data exists"
 	cd fastq
 	for i in *fastq.gz
