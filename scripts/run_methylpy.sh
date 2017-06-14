@@ -21,24 +21,27 @@ do
 	rm "$i"
 done
 
-if [ SRR*_2.fastq ]
+module load python/2.7.8
+
+if [ -s SRR*_2.fastq ]
 then
 	echo "Data is paired-end"
 	for i in SRR*_2.fastq
 	do
-		output=$(echo "$i" | sed s/.fastq/_2.fastq/)
+		output=$(echo "$i" | sed s/.fastq/_rc.fastq/)
+		echo "Trimming and reverse complementing paired-end"
 		python /usr/local/apps/cutadapt/1.9.dev1/bin/cutadapt \
 		-a AGATCGGAAGAGCGTCGTGTAGGGA -o tmp.fastq "$i"
 		time /usr/local/apps/fastx/0.0.14/bin/fastx_reverse_complement \
 		-i tmp.fastq -o "$output"
 		rm tmp.fastq
 		gzip "$i"
+	done
 fi
 
 #Map bisulfite data
 cd ../methylCseq
-module load python/2.7.8
-if [ ../fastq/SRR*_2.fastq ]
+if [ -s ../fastq/SRR*_2.fastq ]
 then
 	python ../../../scripts/run_methylpy.py "$sample" \
 	"../fastq/*.fastq" "../ref/$sample" "10" "9" "AGATCGGAAGAGCACACGTCTGAAC" \
