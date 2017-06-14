@@ -7,8 +7,9 @@
 
 cd $PBS_O_WORKDIR
 echo "Starting"
+sample=$(pwd | sed s/.*data\\/// | sed s/\\///)
 module load anaconda/3-2.2.0
 module load bedtools/2.23.0
 module load R/3.3.1
 mkdir results figures_tables
-python3.4 ../../../scripts/methylC_analysis.py Cquinoa v1.0
+python3.4 ../../../scripts/methylC_analysis.py $sample
