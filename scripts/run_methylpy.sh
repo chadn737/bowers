@@ -11,6 +11,28 @@ module load sratoolkit/2.8.0
 sample=$(pwd | sed s/.*data\\/// | sed s/\\///)
 
 #Download data
+<<<<<<< HEAD
+fastq=$(ls fastq/*fastq.gz | wc -l)
+if [ $fastq > 0 ]
+then 
+	echo "Sequence data exists"
+	cd fastq
+	for i in *fastq.gz
+	do
+		gunzip "$i"
+	done
+else
+	echo "No Sequence data, retrieving sequencing data"
+	cd fastq
+	module load python/3.5.1
+	python3.5 ../../../scripts/download_fastq.py "$i"
+	for i in *sra
+	do
+		fastq-dump --gzip --split-3 "$i"
+		rm "$i"
+	done
+fi
+=======
 echo "Retrieving sequencing data"
 cd fastq/
 module load python/3.5.1
@@ -20,6 +42,7 @@ do
 	fastq-dump --split-3 "$i"
 	rm "$i"
 done
+>>>>>>> c28682d89912c989f87ac55e273208366b94b3d9
 
 if [ SRR*_2.fastq ]
 then
@@ -38,6 +61,12 @@ fi
 #Map bisulfite data
 cd ../methylCseq
 module load python/2.7.8
+<<<<<<< HEAD
+echo "Running methylpy"
+python ../../../scripts/run_methylpy.py "$sample" \
+"../fastq/*.fastq" "../ref/$sample" "10" "9" "ChrL" \
+> reports/"$sample"_output.txt
+=======
 if [ ../fastq/SRR*_2.fastq ]
 then
 	python ../../../scripts/run_methylpy.py "$sample" \
@@ -48,6 +77,7 @@ else
 	"../fastq/*.fastq" "../ref/$sample" "10" "9" "AGATCGGAAGAGCTCGTATGCC" \
 	"ChrL" > "$sample"_output.txt
 fi
+>>>>>>> c28682d89912c989f87ac55e273208366b94b3d9
 
 #Organize files
 echo "Organizing and cleaning up"
