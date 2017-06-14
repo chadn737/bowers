@@ -9,7 +9,6 @@ sys.path.append(os.path.dirname(os.path.expanduser(functionsfile)))
 import functions
 
 allc=sys.argv[1]+"_allc_total.tsv"
-fasta="../ref/methylCseq/"+sys.argv[1]+"_"+sys.argv[2]+".fa"
 genome_file="../ref/"+sys.argv[1]+".genome"
 features="../ref/"+sys.argv[1]+".gff"
 filter_chr=['ChrL','ChrC','ChrM']
