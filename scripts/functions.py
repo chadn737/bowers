@@ -73,7 +73,8 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
     a = pd.DataFrame(columns=['Gene','CG_sites','mCG_sites','CG_reads','mCG_reads',
                               'CG_methylation_level','CHG_sites','mCHG_sites','CHG_reads',
                               'mCHG_reads','CHG_methylation_level','CHH_sites','mCHH_sites',
-                              'CHH_reads','mCHH_reads','CHH_methylation_level'])
+                              'CHH_reads','mCHH_reads','CHH_methylation_level','C_sites',
+                              'mC_sites','C_reads','mC_reads','C_methylation_level'])
     name = "none"
     rCG = mrCG = CG = mCG = rCHG = mrCHG = CHG = mCHG = rCHH = mrCHH = CHH = mCHH = 0
     for c in m.itertuples():
@@ -89,7 +90,7 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
                     mCG = mCG + int(c[4])
                 elif c[1].endswith("G"):
                     rCHG = rCHG + int(c[3])
-                    mrCHG = mrCG + int(c[2])
+                    mrCHG = mrCHG + int(c[2])
                     CHG = CHG + 1
                     mCHG = mCHG + int(c[4])
                 else:
@@ -98,13 +99,17 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
                     CHH = CHH + 1
                     mCHH = mCHH + int(c[4])
         elif c[5] != name:
-            a = a.append({'Gene':str(name), 'CG_sites':str(CG), 'mCG_sites':str(mCG),
-                          'CG_reads':str(rCG), 'mCG_reads':str(mrCG),
-                          'CG_methylation_level':(np.float64(mrCG)/np.float64(rCG)), 'CHG_sites':str(CHG),
-                          'mCHG_sites':str(mCHG), 'CHG_reads':str(rCHG), 'mCHG_reads':str(mrCHG),
-                          'CHG_methylation_level':(np.float64(mrCHG)/np.float64(rCHG)), 'CHH_sites':str(CHH),
-                          'mCHH_sites':str(mCHH), 'CHH_reads':str(rCHH), 'mCHH_reads':str(mrCHH),
-                          'CHH_methylation_level':(np.float64(mrCHH)/np.float64(rCHH))},ignore_index=True)
+            a = a.append({'Gene':name, 'CG_sites':CG, 'mCG_sites':mCG,
+                          'CG_reads':rCG, 'mCG_reads':mrCG,
+                          'CG_methylation_level':str(np.float64(mrCG)/np.float64(rCG)),
+                          'CHG_sites':CHG, 'mCHG_sites':mCHG, 'CHG_reads':rCHG,
+                          'mCHG_reads':mrCHG, 'CHG_methylation_level':str(np.float64(mrCHG)/np.float64(rCHG)),
+                          'CHH_sites':CHH, 'mCHH_sites':mCHH, 'CHH_reads':rCHH, 'mCHH_reads':mrCHH,
+                          'CHH_methylation_level':str(np.float64(mrCHH)/np.float64(rCHH)),
+                          'C_sites':(CG+CHG+CHH), 'mC_sites':(mCG+mCHG+mCHH),
+                          'C_reads':(rCG+rCHG+rCHH), 'mC_reads':(mrCG+mrCHG+mrCHH),
+                          'C_methylation_level':str(np.float64(mrCG+mrCHG+mrCHH)/np.float64(rCG+rCHG+rCHH))
+                          },ignore_index=True)
             name = c[5]
             rCG = mrCG = CG = mCG = rCHG = mrCHG = CHG = mCHG = rCHH = mrCHH = CHH = mCHH = 0
             if int(c[3]) >= int(cutoff):
@@ -117,7 +122,7 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
                     mCG = mCG + int(c[4])
                 elif c[1].endswith("G"):
                     rCHG = rCHG + int(c[3])
-                    mrCHG = mrCG + int(c[2])
+                    mrCHG = mrCHG + int(c[2])
                     CHG = CHG + 1
                     mCHG = mCHG + int(c[4])
                 else:
@@ -136,7 +141,7 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
                     mCG = mCG + int(c[4])
                 elif c[1].endswith("G"):
                     rCHG = rCHG + int(c[3])
-                    mrCHG = mrCG + int(c[2])
+                    mrCHG = mrCHG + int(c[2])
                     CHG = CHG + 1
                     mCHG = mCHG + int(c[4])
                 else:
@@ -144,13 +149,17 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
                     mrCHH = mrCHH + int(c[2])
                     CHH = CHH + 1
                     mCHH = mCHH + int(c[4])
-    a = a.append({'Gene':str(name), 'CG_sites':str(CG), 'mCG_sites':str(mCG),
-                  'CG_reads':str(rCG), 'mCG_reads':str(mrCG),
-                  'CG_methylation_level':(np.float64(mrCG)/np.float64(rCG)), 'CHG_sites':str(CHG),
-                  'mCHG_sites':str(mCHG), 'CHG_reads':str(rCHG), 'mCHG_reads':str(mrCHG),
-                  'CHG_methylation_level':(np.float64(mrCHG)/np.float64(rCHG)), 'CHH_sites':str(CHH),
-                  'mCHH_sites':str(mCHH), 'CHH_reads':str(rCHH), 'mCHH_reads':str(mrCHH),
-                  'CHH_methylation_level':(np.float64(mrCHH)/np.float64(rCHH))},ignore_index=True)
+    a = a.append({'Gene':name, 'CG_sites':CG, 'mCG_sites':mCG,
+                  'CG_reads':rCG, 'mCG_reads':mrCG,
+                  'CG_methylation_level':str(np.float64(mrCG)/np.float64(rCG)),
+                  'CHG_sites':CHG, 'mCHG_sites':mCHG, 'CHG_reads':rCHG,
+                  'mCHG_reads':mrCHG, 'CHG_methylation_level':str(np.float64(mrCHG)/np.float64(rCHG)),
+                  'CHH_sites':CHH, 'mCHH_sites':mCHH, 'CHH_reads':rCHH, 'mCHH_reads':mrCHH,
+                  'CHH_methylation_level':str(np.float64(mrCHH)/np.float64(rCHH)),
+                  'C_sites':(CG+CHG+CHH), 'mC_sites':(mCG+mCHG+mCHH),
+                  'C_reads':(rCG+rCHG+rCHH), 'mC_reads':(mrCG+mrCHG+mrCHH),
+                  'C_methylation_level':str(np.float64(mrCG+mrCHG+mrCHH)/np.float64(rCG+rCHG+rCHH))
+                  },ignore_index=True)
     if output:
         a.to_csv(output, sep='\t', index=False)
     else:
