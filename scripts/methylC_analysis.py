@@ -15,9 +15,13 @@ context=['CG','CHG','CHH','CAA','CAT','CAC','CAG','CTA','CTT','CTC',
 
 if os.path.exists(features):
     print("Gene metaplot")
-#    functions.map2features(allc,features,genome_file,updown_stream=0,
-#                           first_feature='gene',second_feature='exon',filter_chr=filter_chr)
-    functions.feature_mC_levels('CDS_allc.tmp',features,output="results/gene_methylation_levels.tsv",
+    functions.get_first_bps(features,genome_file,output="../ref/first_150.gff",
+                            first_feature="mRNA",second_feature="CDS",up=150,
+                            down=0)
+    functions.map2features(allc,"../ref/first_150.gff",genome_file,updown_stream=0,
+                          first_feature='CDS',second_feature='CDS',filter_chr=filter_chr)
+    functions.feature_mC_levels('CDS_allc.tmp',features,
+                                output="results/first_150_methylation_levels.tsv",
                                 cutoff=0,filter_features='gene',filter_chr=filter_chr)
 
 else:

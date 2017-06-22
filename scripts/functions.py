@@ -200,3 +200,45 @@ def gene_binom_test(df,cutoff=10,calc_baseline=True,mCG=(),mCHG=(),mCHH=(),outpu
         a.to_csv(output, sep='\t', index=False)
     else:
         return a
+
+#
+def start_end_coordinates(features,genome_file,output=(),up=0,down=0,
+                          use_three_prime=False):
+    if isinstance(features, pd.DataFrame):
+        a = features
+        a[3] = np.int64(a[3])
+        a[4] = np.int64(a[4])
+    else:
+        a = pd.read_table(features,header=None,sep="\t")
+    if use_three_prime:
+        a[3] = a[4]
+    else:
+        a[4] = a[3]
+    a = pbt.BedTool.from_dataframe(a)
+    if up != 0 or down != 0:
+        a = pbt.bedtool.BedTool.flank(a,g=genome_file,l=up,r=down,s=True).saveas('tmp')
+    if output:
+        a.saveas(output)
+        os.remove('tmp')
+    else:
+        return a
+
+#Returns a modified gff file with
+def get_first_bps(features,genome_file,output=(),first_feature=(),
+                  second_feature=(),up=0,down=0):
+    a = pd.read_table(features,header=None,sep="\t")
+    b = pd.DataFrame()
+    d = 0
+    for i, c in a.iterrows():
+        if c[2] == first_feature and d == 0:
+            d = 1
+        elif c[2] == second_feature and d == 1:
+            b = b.append(c)
+            d = 0
+    e = start_end_coordinates(b,genome_file,output=(),
+                             up=up,down=down,use_three_prime=False)
+    if output:
+        e.saveas(output)
+        os.remove('tmp')
+    else:
+        return e
