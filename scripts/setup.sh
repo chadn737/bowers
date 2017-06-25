@@ -9,13 +9,14 @@ echo "Starting"
 cd $PBS_O_WORKDIR
 module load samtools/1.2
 
-for i in Athaliana Bdistachyon Osativa Ppersica \
-Ptrichocarpa Sbicolor Slycopersicum Vvinifera Zmays
+#for i in Athaliana Bdistachyon Osativa Ppersica \
+#Ptrichocarpa Sbicolor Slycopersicum Vvinifera Zmays
+for i in Ppersica
 do
 	echo "Preparing $i"
-	mkdir "$i"
+	#mkdir "$i"
 	cd "$i"
-	mkdir ref fastq methylCseq
+	#mkdir ref fastq methylCseq
 
 	#Make index files
 	cd ref
