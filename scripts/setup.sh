@@ -9,16 +9,15 @@ echo "Starting"
 cd $PBS_O_WORKDIR
 module load samtools/1.2
 
-#for i in Athaliana Bdistachyon Osativa Ppersica \
-#Ptrichocarpa Sbicolor Slycopersicum Vvinifera Zmays
-for i in Ptrichocarpa Ppersica
+for i in Athaliana Bdistachyon Osativa Ppersica \
+Ptrichocarpa Sbicolor Slycopersicum Vvinifera Zmays
 do
 	echo "Preparing $i"
-	#mkdir "$i"
+	mkdir "$i"
 	cd "$i"
-	#mkdir ref fastq methylCseq
+	mkdir ref fastq methylCseq
 
-	#Make index files
+	Make index files
 	cd ref
 	echo "Downloading and prepping genome"
 	module load python/3.5.1
@@ -28,7 +27,7 @@ do
 	python ../../../scripts/fix_fasta.py -i tmp -o "$i".fa
 	rm tmp
 	samtools faidx "$i".fa
-	cut -f1,2 "$i".fa > "$i".genome
+	cut -f1,2 "$i".fa.fai > "$i".genome
 	echo "Building index"
 	python ../../../scripts/build_methylCseq_index.py "$i"
 	cd ../../
