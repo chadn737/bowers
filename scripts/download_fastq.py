@@ -10,7 +10,7 @@ files = {
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656912/SRR3286250/SRR3286250.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656912/SRR3286251/SRR3286251.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656912/SRR3286252/SRR3286252.sra'],
-'Osativa':[],
+'Osativa':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX374/SRX374427/SRR1036000/SRR1036000.sra'],
 'Ppersica':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656929/SRR3286303/SRR3286303.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656929/SRR3286304/SRR3286304.sra'],
 'Ptrichocarpa':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656930/SRR3286305/SRR3286305.sra'],
