@@ -21,7 +21,7 @@ files = {
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286317/SRR3286317.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286318/SRR3286318.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286319/SRR3286319.sra'],
-'Zmays':[]
+'Zmays':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX107/SRX1073669/SRR2079447/SRR2079447.sra']
 }
 
 for i in files.get(sys.argv[1]):
