@@ -13,4 +13,4 @@ files = {
 'Zmays.fa':'https://genomevolution.org/coge/api/v1/genomes/33766/sequence',
 }
 
-urllib.request.urlretrieve(files.get(sys.argv[0]+'.fa'),sys.argv[0]+'.fa')
+urllib.request.urlretrieve(files.get(sys.argv[1]+'.fa'),sys.argv[1]+'.fa')
