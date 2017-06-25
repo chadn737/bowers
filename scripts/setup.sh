@@ -28,6 +28,7 @@ do
 	python ../../../scripts/fix_fasta.py -i tmp -o "$i".fa
 	rm tmp
 	samtools faidx "$i".fa
+	cut -f1,2 "$i".fa > "$i".genome
 	echo "Building index"
 	python ../../../scripts/build_methylCseq_index.py "$i"
 	cd ../../
