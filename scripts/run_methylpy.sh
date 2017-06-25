@@ -20,7 +20,7 @@ then
 	done
 	cd ../
 elif ls fastq/*fastq
-	then
+then
 		echo "Unzipped sequence data exists"
 else
 	echo "No Sequence data, retrieving sequencing data"
@@ -34,6 +34,7 @@ else
 		rm "$i"
 	done
 	if ls fastq/*fastq.gz
+	then
 		for i in *fastq.gz
 		do
 			gunzip "$i"
