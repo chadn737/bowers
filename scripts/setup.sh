@@ -11,7 +11,7 @@ module load samtools/1.2
 
 #for i in Athaliana Bdistachyon Osativa Ppersica \
 #Ptrichocarpa Sbicolor Slycopersicum Vvinifera Zmays
-for i in Ptrichocarpa
+for i in Ptrichocarpa Ppersica
 do
 	echo "Preparing $i"
 	#mkdir "$i"
