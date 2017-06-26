@@ -3,7 +3,7 @@ import urllib.request
 import re
 
 files = {
-'Athaliana':[],
+'Athaliana':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX248/SRX248644/SRR771698/SRR771698.sra'],
 'Bdistachyon':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656912/SRR3286247/SRR3286247.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656912/SRR3286248/SRR3286248.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656912/SRR3286249/SRR3286249.sra',
