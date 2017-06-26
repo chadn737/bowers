@@ -55,6 +55,7 @@ then
 		for i in SRR*_2.fastq
 		do
 			output=$(echo "$i" | sed s/.fastq/_rc.fastq/)
+			module load python/2.7.8
 			time python /usr/local/apps/cutadapt/1.9.dev1/bin/cutadapt \
 			-a AGATCGGAAGAGCGTCGTGTAGGGA -o tmp.fastq "$i"
 			time /usr/local/apps/fastx/0.0.14/bin/fastx_reverse_complement \
