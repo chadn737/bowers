@@ -9,7 +9,7 @@ import functions
 allc=sys.argv[1]+'_allc_total.tsv'
 genome_file='../ref/'+sys.argv[1]+'.genome'
 features='../ref/'+sys.argv[1]+'.gff'
-filter_chr=['ChrL','ChrC','ChrM']
+filter_chr=['ChrL','ChrC','ChrM','lcl|Pt','lcl|Mt']
 context=['CG','CHG','CHH','CAA','CAT','CAC','CAG','CTA','CTT','CTC',
          'CTG','CCA','CCT','CCC','CCG','CGA','CGT','CGC','CGG']
 
