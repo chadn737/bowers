@@ -59,8 +59,9 @@ then
 			time python /usr/local/apps/cutadapt/1.9.dev1/bin/cutadapt \
 			-a AGATCGGAAGAGCGTCGTGTAGGGA -o tmp.fastq "$i"
 			time /usr/local/apps/fastx/0.0.14/bin/fastx_reverse_complement \
-			-i tmp.fastq -o "$output"
-			rm tmp.fastq
+			-i tmp.fastq -o tmp2.fastq
+	    sed s/\ HWI/\.2\ HWI/g tmp2.fastq > "$output"
+	    rm tmp.fastq tmp2.fastq
 			gzip "$i"
 		done
 		cd ../
