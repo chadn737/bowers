@@ -33,13 +33,10 @@ else
 		fastq-dump --gzip --split-3 "$i"
 		rm "$i"
 	done
-	if ls fastq/*fastq.gz
-	then
-		for i in *fastq.gz
-		do
-			gunzip "$i"
-		done
-	fi
+	for i in *fastq.gz
+	do
+		gunzip "$i"
+	done
 	cd ../
 fi
 
