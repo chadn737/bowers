@@ -84,7 +84,7 @@ fi
 
 #Organize files
 echo "Organizing and cleaning up"
-rm *mpileup* *.bam *.bam.bai
+#rm *mpileup* *.bam *.bam.bai
 mkdir tmp
 head -1 allc_"$sample"_ChrL.tsv > tmp/header
 for i in allc_"$sample"_*
