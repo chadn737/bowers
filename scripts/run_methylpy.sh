@@ -79,7 +79,7 @@ then
 else
 	python ../../../scripts/run_methylpy.py "$sample" \
 	"../fastq/*.fastq" "../ref/$sample" "10" "9" "AGATCGGAAGAGCTCGTATGCC" \
-	"lcl|Pt" > "$sample"_output.txt
+	"ChrL" > "$sample"_output.txt
 fi
 
 #Organize files
