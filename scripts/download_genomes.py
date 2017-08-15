@@ -11,6 +11,8 @@ files = {
 'Slycopersicum.fa':'https://genomevolution.org/coge/api/v1/genomes/24769/sequence',
 'Vvinifera.fa':'https://genomevolution.org/coge/api/v1/genomes/19990/sequence',
 'Zmays.fa':'https://genomevolution.org/coge/api/v1/genomes/33766/sequence',
+'Zmays_ChrC.fa':'https://genomevolution.org/coge/api/v1/genomes/1252/sequence'
 }
 
 urllib.request.urlretrieve(files.get(sys.argv[1]+'.fa'),sys.argv[1]+'.fa')
+urllib.request.urlretrieve(files.get(sys.argv[1]+'_ChrC.fa'),sys.argv[1]+'_ChrC.fa')
