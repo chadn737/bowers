@@ -20,9 +20,9 @@ if os.path.exists(features):
                             down=0)
     functions.map2features(allc,'../ref/first_150.gff',genome_file,updown_stream=0,
                           first_feature='CDS',second_feature='CDS',filter_chr=filter_chr)
-    functions.feature_mC_levels('CDS_allc.tmp',features,
+    functions.feature_mC_levels('CDS_allc.tmp','../ref/first_150.gff',
                                 output='results/first_150_methylation_levels.tsv',
-                                cutoff=0,filter_features='gene',filter_chr=filter_chr)
+                                cutoff=0,filter_features='CDS',filter_chr=filter_chr)
     os.remove('CDS_allc.tmp')
     os.remove('f_tmp')
     os.remove('c_tmp')
