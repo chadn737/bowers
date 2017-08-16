@@ -56,15 +56,15 @@ then
 	echo "Data is paired-end"
 	index=$(ls ../ref/*fa.fai | sed s/.fa.fai//)
 	python ../../../scripts/run_methylpy_pe.py "$sample" \
-	"../fastq/methylCseq/*_1.fastq" "../fastq/methylCseq/*_2.fastq" "$index" \
+	"../fastq/*_1.fastq" "../fastq/*_2.fastq" "$index" \
   	"10" "9" "AGATCGGAAGAGCACACGTCTGAAC" "AGATCGGAAGAGCGTCGTGTAGGGA" \
-	"$refC" > reports/"$sample"_output.txt
+	"$refC" > "$sample"_output.txt
 else
 	echo "Data is single-end"
 	index=$(ls ../ref/*fa.fai | sed s/.fa.fai//)
 	python ../../../scripts/run_methylpy.py "$sample" \
-	"../fastq/methylCseq/*.fastq" "$index" "10" "9" "AGATCGGAAGAGCTCGTATGCC" \
-	"$refC" > reports/"$sample"_output.txt
+	"../fastq/*.fastq" "$index" "10" "9" "AGATCGGAAGAGCTCGTATGCC" \
+	"$refC" > "$sample"_output.txt
 fi
 
 #Organize files
@@ -85,9 +85,9 @@ cd ../
 rm -R tmp
 tar -cjvf "$sample"_allc_total.tar.bz2 "$sample"_allc_total.tsv
 cd ../fastq
-for i in *fastq
-do
-	gzip "$i"
-done
+#for i in *fastq
+#do
+#	gzip "$i"
+#done
 
 echo "Done"
