@@ -165,7 +165,7 @@ def feature_mC_levels(allc,features,output=(),cutoff=0,filter_features=(),filter
     else:
         return a
 
-#
+#Script for doing False Discovery Rate 
 def FDR(a,column,new_col):
     b=a[a[column] != "NaN"][column].sort_values(ascending=False)
     lp=len(b)
@@ -177,7 +177,7 @@ def FDR(a,column,new_col):
     a=pd.concat([a,c],axis=1)
     return a
 
-#
+#Conduct binomial test to determine if genic methylation is significant
 def gene_binom_test(df,cutoff=10,calc_baseline=True,mCG=(),mCHG=(),mCHH=(),output=()):
     a=pd.read_table(df,sep="\t")
     if calc_baseline:
@@ -201,7 +201,7 @@ def gene_binom_test(df,cutoff=10,calc_baseline=True,mCG=(),mCHG=(),mCHH=(),outpu
     else:
         return a
 
-#
+#subscript to generate new start and end coordinates for gff file
 def start_end_coordinates(features,genome_file,output=(),up=0,down=0,
                           use_three_prime=False):
     if isinstance(features, pd.DataFrame):
@@ -223,7 +223,7 @@ def start_end_coordinates(features,genome_file,output=(),up=0,down=0,
     else:
         return a
 
-#Returns a modified gff file with
+#Returns a modified gff file with only first X bps of sequence
 def get_first_bps(features,genome_file,output=(),first_feature=(),
                   second_feature=(),up=0,down=0):
     a = pd.read_table(features,header=None,sep="\t")

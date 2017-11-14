@@ -73,7 +73,7 @@ fi
 
 #Organize files
 echo "Organizing and cleaning up"
-#rm *mpileup* *.bam *.bam.bai
+rm *mpileup* *.bam *.bam.bai
 mkdir tmp
 head -1 allc_"$sample"_ChrL.tsv > tmp/header
 for i in allc_"$sample"_*
@@ -89,9 +89,9 @@ cd ../
 rm -R tmp
 tar -cjvf "$sample"_allc_total.tar.bz2 "$sample"_allc_total.tsv
 cd ../fastq
-#for i in *fastq
-#do
-#	gzip "$i"
-#done
+for i in *fastq
+do
+	gzip "$i"
+done
 
 echo "Done"

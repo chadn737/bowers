@@ -21,13 +21,7 @@ files = {
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286317/SRR3286317.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286318/SRR3286318.sra',
 'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX165/SRX1656936/SRR3286319/SRR3286319.sra'],
-'Zmays':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408797/SRR408797.sra',
-'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408796/SRR408796.sra',
-'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408795/SRR408795.sra',
-'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408794/SRR408794.sra',
-'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408791/SRR408791.sra',
-'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408790/SRR408790.sra',
-'ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX120/SRX120258/SRR408788/SRR408788.sra']
+'Zmays':['ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByExp/sra/SRX/SRX107/SRX1073669/SRR2079447/SRR2079447.sra']
 }
 
 for i in files.get(sys.argv[1]):

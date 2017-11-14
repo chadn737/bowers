@@ -35,15 +35,15 @@ cd ../
 
 #Cleanup directory
 echo "Cleaning up intermediate files"
-#rm *mpileup* *.bam *.bam.bai
+rm *mpileup* *.bam *.bam.bai
 
 #Compress fastq files
 echo "Compressing fastq files"
 cd ../fastq/methylCseq
-#rm *_rc.fastq
-#for i in *fastq
-#do
-#  gzip "$i"
-#done
+rm *_rc.fastq
+for i in *fastq
+do
+  gzip "$i"
+done
 
 echo "done"
