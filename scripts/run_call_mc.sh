@@ -3,7 +3,7 @@
 #PBS -N call_mc
 #PBS -l nodes=1:ppn=12:HIGHMEM
 #PBS -l walltime=999:00:00
-#PBS -l mem=120gb
+#PBS -l mem=100gb
 
 cd $PBS_O_WORKDIR
 sample=$(pwd | sed s/\\/methylCseq// | sed s/^.*\\///)

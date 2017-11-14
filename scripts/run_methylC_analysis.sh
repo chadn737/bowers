@@ -3,7 +3,7 @@
 #PBS -N methylC_analysis
 #PBS -l nodes=1:ppn=2:HIGHMEM
 #PBS -l walltime=480:00:00
-#PBS -l mem=300gb
+#PBS -l mem=100gb
 
 export TMPDIR=$PBS_O_WORKDIR
 export TMP=$PBS_O_WORKDIR
@@ -16,4 +16,3 @@ module load anaconda/3-2.2.0
 module load bedtools/2.23.0
 mkdir results
 python3.4 ../../../scripts/methylC_analysis.py "$sample"
-

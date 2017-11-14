@@ -3,7 +3,7 @@
 #PBS -N methylpy
 #PBS -l nodes=1:ppn=12:HIGHMEM
 #PBS -l walltime=999:00:00
-#PBS -l mem=160gb
+#PBS -l mem=100gb
 
 export TMPDIR=$PBS_O_WORKDIR
 export TMP=$PBS_O_WORKDIR
